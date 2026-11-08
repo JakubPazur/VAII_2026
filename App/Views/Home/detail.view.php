@@ -12,16 +12,16 @@
     </div>
 </section>
 <section class="history">
-    <div class="section-title"><h3>Servisná história</h3><button type="button">Pridať servisný záznam</button></div>
-    <div class="table-wrap">
-        <table>
-            <thead><tr><th>Dátum</th><th>Typ úkonu</th><th>Kilometre</th><th>Cena</th><th>Akcie</th></tr></thead>
-            <tbody>
-                <tr><td>12.09.2026</td><td>Výmena oleja</td><td>143 000 km</td><td>120 €</td><td><button type="button" class="text-button">Upraviť</button> | <button type="button" class="text-button">Vymazať</button></td></tr>
-                <tr><td>02.09.2026</td><td>Výmena bŕzd</td><td>140 000 km</td><td>350 €</td><td><button type="button" class="text-button">Upraviť</button> | <button type="button" class="text-button">Vymazať</button></td></tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="section-title"><h3>Servisná história</h3><a class="action-link" href="?c=Servis&amp;a=pridat">Pridať servisný záznam</a></div>
+    <div class="table-wrap"><table>
+        <thead><tr><th>Dátum</th><th>Typ úkonu</th><th>Kilometre</th><th>Cena</th><th>Akcie</th></tr></thead>
+        <tbody><?php foreach ($zaznamy as $z): ?>
+        <tr><td><?= htmlspecialchars($z->datum) ?></td><td><?= htmlspecialchars($z->typ_ukonu) ?></td><td><?= (int)$z->kilometre ?> km</td><td><?= number_format((float)$z->cena, 2, ',', ' ') ?> €</td>
+        <td><a href="?c=Servis&amp;a=upravit&amp;id=<?= (int)$z->id ?>">Upraviť</a> |
+        <form method="post" action="?c=Servis&amp;a=vymazat" style="display:inline" onsubmit="return confirm('Naozaj vymazať?')"><input type="hidden" name="id" value="<?= (int)$z->id ?>"><button class="text-button" type="submit">Vymazať</button></form></td></tr>
+        <?php endforeach; ?>
+        <?php if (!$zaznamy): ?><tr><td colspan="5">Zatiaľ žiadne servisné záznamy.</td></tr><?php endif; ?></tbody>
+    </table></div>
 </section>
 <div class="bottom-sections">
     <section><h3>Plán údržby</h3><p>Výmena oleja – plán 155 000 km</p></section>

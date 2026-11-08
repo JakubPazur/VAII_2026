@@ -19,7 +19,7 @@
     <nav class="navigation" aria-label="Hlavná navigácia">
         <a href="/?c=Home&a=index">Dashboard</a>
         <a href="/?c=Home&a=detail">Moje vozidlá</a>
-        <a href="/?c=Home&a=detail">Servisné záznamy</a>
+        <a href="/?c=Servis&a=index">Servisné záznamy</a>
         <a href="/?c=Home&a=detail">Plán údržby</a>
         <a href="/?c=Home&a=detail">Dokumenty</a>
         <a href="/?c=Home&a=index">Profil</a>
