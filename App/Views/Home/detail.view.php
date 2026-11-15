@@ -1,11 +1,11 @@
-<p class="breadcrumb">Moje vozidlá / Detail vozidla</p>
-<h2>Škoda Octavia</h2>
+<p class="breadcrumb"><a href="?c=Vozidlo&amp;a=index">Moje vozidlá</a> / Detail vozidla</p>
+<h2><?= $vozidlo ? htmlspecialchars($vozidlo->znacka . " " . $vozidlo->model) : "Žiadne vozidlo" ?></h2>
 <section class="vehicle">
     <h3>Údaje o vozidle</h3>
     <div class="vehicle-grid">
-        <div><small>Značka a model</small><strong>Škoda Octavia</strong></div>
-        <div><small>Rok výroby</small><strong>2018</strong></div>
-        <div><small>EČV</small><strong>CA783BH</strong></div>
+        <div><small>Značka a model</small><strong><?= $vozidlo ? htmlspecialchars($vozidlo->znacka . " " . $vozidlo->model) : "—" ?></strong></div>
+        <div><small>Rok výroby</small><strong><?= $vozidlo ? (int)$vozidlo->rok_vyroby : "—" ?></strong></div>
+        <div><small>EČV</small><strong><?= $vozidlo ? htmlspecialchars($vozidlo->ecv) : "—" ?></strong></div>
         <div><small>VIN</small><strong>XXXXXXXXXXXXXXXXX</strong></div>
         <div><small>Najazdené kilometre</small><strong>145 220 km</strong></div>
         <div><small>Vlastník</small><strong>Jakub</strong></div>

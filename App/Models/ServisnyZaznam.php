@@ -7,9 +7,10 @@ class ServisnyZaznam extends Model
 {
     protected static ?string $tableName = 'servisne_zaznamy';
     protected static ?string $primaryKey = 'id';
-    protected static ?array $fillable = ['datum', 'typ_ukonu', 'kilometre', 'cena'];
+    protected static ?array $fillable = ['datum', 'typ_ukonu', 'kilometre', 'cena', 'vozidlo_id'];
 
     public ?int $id = null;
+    public int $vozidlo_id = 0;
     public string $datum = '';
     public string $typ_ukonu = '';
     public int $kilometre = 0;
